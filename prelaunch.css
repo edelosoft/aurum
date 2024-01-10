@@ -460,7 +460,15 @@ body {
   border-top: 5px solid #152319;
 }
 
+.bottom-right .fourth.mobile {
+  opacity: 0;
+}
+
 @media screen and (max-width: 767px) {
+  .bottom-right .fourth.mobile {
+    opacity: 1;
+  }
+
   #second-grid .bottom-right .third {
     min-width: 100vw;
     width: 100vw;
