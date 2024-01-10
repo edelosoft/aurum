@@ -537,4 +537,21 @@ body {
   #second-grid .top-right {
     background-color: #dbd1cb;
   }
+
+  .footer-container {
+    flex-direction: column;
+  }
+
+  .div-block-29 {
+    flex-direction: row;
+  }
+
+  .div-block-27 {
+    margin-bottom: 5em;
+  }
+
+  .div-block-28 {
+    justify-content: flex-start;
+    width: 100%;
+  }
 }
