@@ -544,6 +544,8 @@ body {
 
   .div-block-30 {
     flex: 0 1 auto;
+    flex-direction: column;
+    padding-right: 2em;
   }
 
   .div-block-30 .link-2 {
@@ -552,11 +554,13 @@ body {
 
   .div-block-31 {
     flex: 1;
+    margin-bottom: 3px;;
   }
 
   .div-block-29 {
     flex-direction: row;
     width: 100%;
+    align-items: flex-end;
   }
 
   .div-block-27 {
