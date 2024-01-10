@@ -542,8 +542,21 @@ body {
     flex-direction: column;
   }
 
+  .div-block-30 {
+    flex: 0 1 auto;
+  }
+
+  .div-block-30 .link-2 {
+    margin-right: 1em;
+  }
+
+  .div-block-31 {
+    flex: 1;
+  }
+
   .div-block-29 {
     flex-direction: row;
+    width: 100%;
   }
 
   .div-block-27 {
@@ -551,7 +564,7 @@ body {
   }
 
   .div-block-28 {
-    justify-content: flex-start;
+    align-items: flex-start;
     width: 100%;
   }
 }
