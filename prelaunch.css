@@ -497,6 +497,10 @@ body {
   opacity: 0;
 }
 
+.div-block-32.top-register {
+  z-index: 10;
+}
+
 @media screen and (max-width: 767px) {
   .div-block-25 {
     margin-right: 30px;
