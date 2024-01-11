@@ -1,0 +1,334 @@
+/* Common */
+#second-grid .bottom-right .second {
+    max-width: calc(45vw - 10px);
+    max-height: calc(55vh - 10px);
+    transform: translate3d(0px, 20px, 0px);
+}
+
+#first-grid .top-left .first {
+    max-width: 35vw;
+    max-height: 75vh;
+}
+
+#first-grid .top-left .second {
+    min-width: 55vw;
+    min-height: 80vh;
+}
+
+#second-grid .top-right .cell-image .second {
+    max-width: 45vw;
+    width: 45vw;
+    min-height: 45vh;
+}
+
+#second-grid .top-right .cell-image .third {
+    min-width: 55vw;
+    width: 55vw;
+    min-height: 55vh;
+    height: 55vh;
+}
+
+#second-grid .bottom-right .third {
+    min-width: 55vw;
+    width: 55vw;
+    min-height: 45vh;
+    height: 45vh;
+}
+
+#first-grid .top-left .third .text-content {
+    max-width: 45vw;
+    max-height: 80vh;
+}
+
+#second-grid .top-right .cell-image .fourth {
+    width: 50vw;
+    height: 100vh;
+}
+
+.logos {
+    min-width: 36vw;
+}
+
+.text-grow {
+    transition: all 1s;
+}
+
+.text-static {
+    opacity: 0;
+    transform: translate3d(0px, -20px, 0px);
+}
+
+#first-grid .top-left .fourth {
+    min-height: 100vh;
+}
+
+.big-heading {
+    font-size: clamp(50px, 5vw, 90px);
+}
+
+.text-static,
+.sticker,
+.content-text {
+    font-size: clamp(12px, 1vw, 18px) !important;
+}
+
+.button-text {
+    font-size: clamp(12px, 1vw, 16px) !important;
+}
+
+.content-heading {
+    font-size: clamp(20px, 1.5vw, 30px) !important;
+}
+
+.text-small {
+    font-size: clamp(8px, 0.5vw, 12px) !important;
+}
+
+.text-static {
+    max-width: 19vw !important;
+    z-index: 1;
+}
+
+.mobile-bottom {
+    display: block;
+    position: absolute;
+    left: 0;
+    border-top: 5px solid #152319;
+}
+
+.bottom-right .fourth.mobile {
+    opacity: 0;
+}
+
+.div-block-32.top-register {
+    z-index: 10;
+}
+
+.cell-container.green .text-small {
+    height: 30px;
+}
+
+@media screen and (max-width: 1399px) and (min-width: 1199px) {
+    .text-block-4.text-static {
+        padding-right: 40px;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+
+    .footer-container .div-block-25 img,
+    .footer-container .div-block-26 img,
+    .cell-container.green .logos img {
+        width: 80px;
+    }
+
+    .aurum-logo {
+        width: 90px !important;
+    }
+}
+
+@media screen and (max-width: 1023px) and (orientation: landscape) {
+    .mobile-landscape {
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .footer-container .div-block-26 img {
+        width: 90px;
+    }
+
+    .aurum-logo {
+        margin-top: 0px;
+    }
+
+    .text-static,
+    .sticker,
+    .content-text {
+        font-size: 14px !important;
+    }
+
+    .div-block-25 {
+        margin-right: 30px;
+    }
+
+    .div-block-24.logos {
+        padding: 10vw;
+    }
+
+    #second-grid .bottom-right .third {
+        min-width: 100vw;
+        width: 100vw;
+        min-height: 55vh;
+        height: 55vh;
+        padding: 10vw;
+    }
+
+    .mobile-bottom .fifth,
+    .mobile-bottom .fourth {
+        position: relative;
+        opacity: 1;
+    }
+
+    .mobile-bottom div.fifth,
+    .mobile-bottom div.fourth {
+        padding: 10vw;
+    }
+
+    .mobile-bottom div.fourth .div-block-20 {
+        display: flex;
+        flex-direction: row;
+        margin-top: 3em;
+    }
+
+    #first-grid .top-left .first {
+        min-width: 90vw;
+        max-width: 90vw;
+        max-height: 75vh;
+        padding: 10vw;
+    }
+
+    .bottom-left .cell-container.green .first {
+        min-width: 90vw;
+    }
+
+    .bottom-left .cell-container.green .text-grow {
+        display: none;
+    }
+
+    #second-grid .bottom-right .slides-container .first {
+        padding: 0px;
+        width: 100%;
+        height: 100%;
+    }
+
+    #second-grid .top-right .cell-image .first,
+    #second-grid .bottom-right .first {
+        min-width: 100vw;
+    }
+
+    #second-grid .bottom-right .fourth {
+        padding: 0px;
+    }
+
+    .top-right,
+    .bottom-right {
+        overflow: hidden;
+    }
+
+    #second-grid .top-right .cell-image .fourth {
+        width: 100%;
+        height: 30vh;
+        margin-bottom: 0px;
+        transition: 1s all;
+        padding: 10vw;
+        padding-right: calc(10vw + 50px);
+    }
+
+    #second-grid .top-right .cell-image .fourth .content-text {
+        margin-bottom: 0px;
+    }
+
+    .div-block-17.text-content {
+        padding: 0px;
+        justify-content: flex-end;
+    }
+
+    #second-grid .top-right {
+        background-color: #dbd1cb;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        padding: 10vw;
+    }
+
+    .div-block-30 {
+        flex: 0 1 auto;
+        flex-direction: column;
+        padding-right: 2em;
+    }
+
+    .link-block-5,
+    .link-block-6,
+    .link-block-7 {
+        margin-right: 1.5em;
+    }
+
+    .div-block-30 .link-2 {
+        margin-right: 1em;
+    }
+
+    .div-block-31 {
+        flex: 1;
+        margin-bottom: 3px;
+        ;
+    }
+
+    .div-block-29 {
+        flex-direction: row;
+        width: 100%;
+        align-items: flex-end;
+    }
+
+    .div-block-27 {
+        margin-bottom: 5em;
+    }
+
+    .div-block-28 {
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .sticker {
+        display: none;
+    }
+
+    .top-register {
+        z-index: 2;
+        right: unset;
+        left: 20px;
+        top: 20px;
+    }
+
+    .div-block-33 {
+        padding: 10px;
+    }
+
+    .div-block-33 img {
+        width: 16px;
+    }
+
+    .green-button.button-text {
+        padding: 12px 20px;
+        line-height: 1;
+    }
+
+    #second-grid .bottom-right .third {
+        padding-right: calc(10vw + 30px);
+    }
+
+    #second-grid .bottom-right .slides-container::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -5px;
+        border-right: 5px solid #152319;
+        height: 100%;
+        transition: all 1s;
+    }
+
+    #second-grid .top-right .cell-image .fourth {
+        overflow: hidden;
+    }
+
+    #second-grid .top-right .cell-image .fourth .content-text {
+        max-height: 0;
+        opacity: 0;
+        transition: all 0.7s;
+    }
+
+    .div-block-16.fourth {
+        background-color: transparent;
+    }
+}
