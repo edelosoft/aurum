@@ -98,14 +98,18 @@
             var end = start + (screenHeight / 2);
             log(top + " " + start + " " + end);
             if (top >= start && top <= end) {
-            changedScene = true;
-            sceneIndex = i + 1;
-            break;
+                changedScene = true;
+                sceneIndex = i + 1;
+                break;
             } else if (top >= 0 && top < screenHeight / 2) {
-            sceneIndex = 0;
-            break;
+                sceneIndex = 0;
+                break;
+            } else if (top >= end && i == numScenes - 1) {
+                changedScene = true;
+                sceneIndex = 4;
+                break;
             } else {
-            changedScene = false;
+                changedScene = false;
             }
         }
 

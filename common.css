@@ -122,7 +122,7 @@
 }
 
 .w-embed {
-    top: -50px;
+    top: -70px;
     position: relative;
 }
 
@@ -395,5 +395,9 @@
 
     .div-block-34.unveiling-mobile {
         opacity: 1;
+    }
+
+    .markers {
+        display: none;
     }
 }
