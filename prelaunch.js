@@ -11,9 +11,8 @@
     log(totalScrollHeight);
 
     var sectionHeight = totalScrollHeight + (screenHeight /2);     
+    $('.mobile-bottom').css('top', sectionHeight + 'px');
     if ($(window).width() < 768) {
-        $('.mobile-bottom').css('top', sectionHeight + 'px');
-            
         $('#first-grid .top-left .fourth').appendTo('.mobile-bottom');
         $('#second-grid .top-right .cell-image .fourth').appendTo('.mobile-bottom');      
 
@@ -46,12 +45,17 @@
         img = $('#second-grid .top-right .second');
         replaceClass(img, 'second', 'first');
         img.appendTo('#second-grid .bottom-right .slides-container');        
+    }
+
+    $('.footer-wrapper').appendTo('.mobile-bottom');
+    $('.footer').remove();
+
+    setTimeout(function() {        
+        $('.div-block-35').css('height', 'calc(100vh - ' + $('.footer-container').outerHeight(true) + 'px)');
 
         var mobileBottomHeight = $('.mobile-bottom').outerHeight(true);
         sectionHeight += mobileBottomHeight;
-    }
 
-    setTimeout(function() {
         $('.animation-section').css('height', sectionHeight + 'px');     
     }, 300);    
 

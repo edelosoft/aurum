@@ -81,18 +81,18 @@ body {
   grid-template-rows: 45% auto;
 }
 
-.scene-2 .text-small,
-.scene-3 .text-small,
-.scene-4 .text-small,
-.scene-5 .text-small {
+.scene-2 .bottom-left .text-small,
+.scene-3 .bottom-left .text-small,
+.scene-4 .bottom-left .text-small,
+.scene-5 .bottom-left .text-small {
   transform: translate3d(0px, 30px, 0px);
   opacity: 0;
 }
 
-.scene-2 .logo,
-.scene-3 .logo,
-.scene-4 .logo,
-.scene-5 .logo {
+.scene-2 .bottom-left .logo,
+.scene-3 .bottom-left .logo,
+.scene-4 .bottom-left .logo,
+.scene-5 .bottom-left .logo {
   transform: translate3d(0px, -20px, 0px);
   position: absolute;
   top: 55%;
@@ -173,19 +173,21 @@ body {
     grid-template-rows: 55% auto;
   }    
 
-  .scene-2 .text-small,
-  .scene-3 .text-small,
-  .scene-4 .text-small,
-  .scene-5 .text-small {
+  .scene-2 .bottom-left .text-small,
+  .scene-3 .bottom-left .text-small,
+  .scene-4 .bottom-left .text-small,
+  .scene-5 .bottom-left .text-small {
     transform: none;
     opacity: 1;
   }
   
-  .scene-2 .logo,
-  .scene-3 .logo,
-  .scene-4 .logo,
-  .scene-5 .logo {
-    transform: none
+  .scene-2 .bottom-left .logo,
+  .scene-3 .bottom-left .logo,
+  .scene-4 .bottom-left .logo,
+  .scene-5 .bottom-left .logo {
+    transform: none;
+    position: relative;
+    top: unset;
   }    
 
   .scene-5 .cell-container.green,
