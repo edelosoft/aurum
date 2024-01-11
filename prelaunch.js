@@ -52,7 +52,7 @@
     }
 
     setTimeout(function() {
-        $('.section-2').css('height', sectionHeight + 'px');     
+        $('.animation-section').css('height', sectionHeight + 'px');     
     }, 300);    
 
     $(document).ready(function() {
@@ -100,10 +100,10 @@
         log(scene);
 
         if (prevScene) {
-            $('#main-grid').removeClass('scene-' + prevScene);
+            $('.animation-section').removeClass('scene-' + prevScene);
         }
 
-        $('#main-grid').addClass('scene-' + scene);
+        $('.animation-section').addClass('scene-' + scene);
         prevScene = scene;
     }
 

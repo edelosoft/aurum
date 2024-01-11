@@ -21,7 +21,7 @@ body {
 }
 
 /* Scene 1 */
-#main-grid.scene-1 {
+.scene-1 #main-grid {
   grid-template-columns: 35% 1fr;
 }    
 
@@ -55,7 +55,7 @@ body {
 }
 
 @media screen and (max-width: 767px) {
-  #main-grid.scene-1 {
+  .scene-1 #main-grid {
     grid-template-columns: 90% 1fr;
   }    
   
@@ -69,7 +69,7 @@ body {
 }
 
 /* Scene 2 */
-#main-grid.scene-2 {
+.scene-2 #main-grid {
   grid-template-columns: 55% 1fr;
 }    
 
@@ -151,15 +151,15 @@ body {
     opacity: 1;
   }
 
-  #main-grid.scene-2,
-  #main-grid.scene-3,
-  #main-grid.scene-4,
-  #main-grid.scene-5 {
+  .scene-2 #main-grid,
+  .scene-3 #main-grid,
+  .scene-4 #main-grid,
+  .scene-5 #main-grid {
     grid-column-gap: 0px;
     transition: all 1s, grid-column-gap 0.5s 1s;
   }
 
-  #main-grid.scene-2 {
+  .scene-2 #main-grid {
     grid-template-columns: 0% 1fr;
   }    
   
@@ -203,7 +203,7 @@ body {
 }
 
 /* Scene 3 */
-#main-grid.scene-3 {
+.scene-3 #main-grid {
   grid-template-columns: 45% 1fr;
 }    
 
@@ -251,7 +251,7 @@ body {
     opacity: 1;
   }
 
-  #main-grid.scene-3 {
+  .scene-3 #main-grid {
     grid-template-columns: 0% 1fr;
   }    
   
@@ -270,7 +270,7 @@ body {
 }
 
 /* Scene 4 */
-#main-grid.scene-4 {
+.scene-4 #main-grid {
   grid-template-columns: 50% 1fr;
 }    
 
@@ -305,7 +305,7 @@ body {
     opacity: 1;
   }
 
-  #main-grid.scene-4 {
+  .scene-4 #main-grid {
     grid-template-columns: 0% 1fr;
   }    
   
@@ -329,7 +329,7 @@ body {
 }
 
 /* Scene 5 */
-#main-grid.scene-5 {
+.scene-5 #main-grid {
   grid-template-columns: 50% 1fr;
 }    
 
@@ -371,7 +371,7 @@ body {
     height: 50vh;    
   }
 
-  #main-grid.scene-5 {
+  .scene-5 #main-grid {
     grid-template-columns: 0% 1fr;
   }    
   
