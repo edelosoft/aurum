@@ -49,6 +49,10 @@ body {
   opacity: 0;
 }
 
+.scene-1 #first-grid .top-left .first {
+  z-index: 5;
+}
+
 @media screen and (max-width: 767px) {
   #main-grid.scene-1 {
     grid-template-columns: 90% 1fr;
@@ -131,6 +135,13 @@ body {
   background-color: #89744A;
 }
 
+.scene-2 .top-register,
+.scene-3 .top-register,
+.scene-4 .top-register,
+.scene-5 .top-register {
+  opacity: 1;
+}
+
 @media screen and (max-width: 767px) {   
   .scene-2 #second-grid .top-right .cell-image .first, 
   .scene-2 #second-grid .bottom-right .first,
@@ -178,6 +189,14 @@ body {
   .scene-3 .cell-container.green,
   .scene-2 .cell-container.green {
     background-color: #152319;
+  }
+
+  .scene-2 .unveiling-mobile,
+  .scene-3 .unveiling-mobile,
+  .scene-4 .unveiling-mobile,
+  .scene-5 .unveiling-mobile {
+    opacity: 1;
+    z-index: 5
   }
 }
 
@@ -240,6 +259,11 @@ body {
   .scene-3 #second-grid {
     grid-template-rows: 45% auto;
   }    
+
+  .scene-3 #second-grid .bottom-right .slides-container::after,
+  .scene-3 #second-grid .bottom-right .third {
+    transform: translate3d(30px, 0px, 0px);
+  }
 }
 
 /* Scene 4 */
@@ -339,7 +363,7 @@ body {
 @media screen and (max-width: 767px) {
   .scene-5 #second-grid .top-right .cell-image .fourth {
     opacity: 1;
-    height: 50vh;
+    height: 50vh;    
   }
 
   #main-grid.scene-5 {
@@ -436,9 +460,12 @@ body {
 
 .text-static,
 .sticker,
-.button-text,
 .content-text {
   font-size: clamp(14px, 1vw, 18px) !important;
+}
+
+.button-text {
+  font-size: clamp(12px, 1vw, 16px) !important;
 }
 
 .content-heading {
@@ -471,10 +498,6 @@ body {
 
   .div-block-24.logos {
     padding: 10vw;
-  }
-
-  .bottom-right .fourth.mobile {
-    opacity: 1;
   }
 
   #second-grid .bottom-right .third {
@@ -537,6 +560,7 @@ body {
     margin-bottom: 0px;
     transition: 1s all;
     padding: 10vw;
+    padding-right: calc(10vw + 50px);
   }
 
   #second-grid .top-right .cell-image .fourth .content-text {
@@ -601,5 +625,39 @@ body {
 
   .sticker {
     display: none;
+  }
+
+  .top-register {
+    z-index: 2;
+    right: unset;
+    left: 20px;
+    top: 20px;
+  }
+
+  .div-block-33 {
+    padding: 10px;
+  }
+
+  .div-block-33 img {
+    width: 16px;
+  }
+
+  .green-button.button-text {
+    padding: 12px 20px;    
+    line-height: 1;
+  }
+
+  #second-grid .bottom-right .third {
+    padding-right: calc(10vw + 30px);
+  }
+
+  #second-grid .bottom-right .slides-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -5px;
+    border-right: 5px solid #152319;
+    height: 100%;
+    transition: all 1s;
   }
 }
