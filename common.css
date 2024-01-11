@@ -157,13 +157,30 @@
 }
 
 @media screen and (max-width: 767px) {
+    .w-embed {
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+    
     .down-arrow { 
         width: 20px;
         bottom: 10px;
     }
 
+    .div-block-35 {
+        padding: 10vw;
+    }
+
+    .div-block-36 {
+        margin-bottom: 2em;
+    }
+
     .div-block-38 {
         flex-direction: column;
+    }
+
+    .div-block-37 {
+        width: 100%
     }
 
     .top-register.desktop {

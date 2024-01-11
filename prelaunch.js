@@ -1,7 +1,7 @@
 (function ($) {
-    var screenHeight = $(window).height();
-    var numScenes = 5;
+    var screenHeight = $(window).height();    
     var totalScrollHeight = screenHeight * numScenes;
+    var numScenes = 5;
     var changedScene = false;
     var prevScene = 1;
     var debug = false;
@@ -12,6 +12,7 @@
 
     var sectionHeight = totalScrollHeight + (screenHeight /2);     
     $('.mobile-bottom').css('top', sectionHeight + 'px');
+
     if ($(window).width() < 768) {
         $('#first-grid .top-left .fourth').appendTo('.mobile-bottom');
         $('#second-grid .top-right .cell-image .fourth').appendTo('.mobile-bottom');      
@@ -51,13 +52,19 @@
     $('.footer').remove();
 
     setTimeout(function() {        
-        $('.div-block-35').css('height', 'calc(100vh - ' + $('.footer-container').outerHeight(true) + 'px)');
-
-        var mobileBottomHeight = $('.mobile-bottom').outerHeight(true);
-        sectionHeight += mobileBottomHeight;
-
-        $('.animation-section').css('height', sectionHeight + 'px');     
+        recalc(sectionHeight);
     }, 300);    
+
+    $('#pc-iframe').on("load",function(){
+        console.log('here');
+        var screenHeight = $(window).height();    
+        var totalScrollHeight = screenHeight * numScenes;
+
+        var sectionHeight = totalScrollHeight + (screenHeight /2);     
+        $('.mobile-bottom').css('top', sectionHeight + 'px');
+
+        recalc(sectionHeight);
+    });
 
     $(document).ready(function() {
         scrollScene();
@@ -66,6 +73,15 @@
     $(window).scroll(function() {
         scrollScene();
     });
+
+    function recalc(sectionHeight) {
+        $('.div-block-35').css('min-height', 'calc(100vh - ' + $('.footer-container').outerHeight(true) + 'px)');
+
+        var mobileBottomHeight = $('.mobile-bottom').outerHeight(true);
+        sectionHeight += mobileBottomHeight;
+
+        $('.animation-section').css('height', sectionHeight + 'px');   
+    }
 
     function replaceClass(element, source, target) {
         element.removeClass(source);
