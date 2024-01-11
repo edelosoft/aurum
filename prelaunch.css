@@ -203,7 +203,9 @@ body {
   .scene-4 .unveiling-mobile,
   .scene-5 .unveiling-mobile {
     opacity: 1;
-    z-index: 5
+    z-index: 5;
+    right: 0px;
+    transition: all 1s 0.4s !important;
   }
 }
 
