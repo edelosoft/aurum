@@ -37,6 +37,7 @@ body {
 .scene-1 #second-grid .bottom-right .first,
 .scene-1 #second-grid .top-right .cell-image .first {
   opacity: 1;
+  z-index: 4;
 }
 
 .scene-1 #first-grid .top-left .second,
@@ -122,6 +123,7 @@ body {
 .scene-2 #second-grid .bottom-right .second,
 .scene-2 #second-grid .top-right .cell-image .second {
   opacity: 1;
+  z-index: 4;
 }
 
 .scene-2 #second-grid .bottom-right .second {
@@ -230,6 +232,7 @@ body {
 .scene-3 #second-grid .bottom-right .third,
 .scene-3 #second-grid .top-right .cell-image .third {
   opacity: 1;
+  z-index: 4;
 }
 
 .scene-3 .div-block-25 {
@@ -294,6 +297,7 @@ body {
 .scene-4 #second-grid .top-right .cell-image .fourth,
 .scene-4 #first-grid .top-left .fourth {
   opacity: 1;
+  z-index: 4;
 }
 
 @media screen and (max-width: 767px) {
@@ -358,6 +362,7 @@ body {
 .scene-5 #first-grid .bottom-left .fifth,
 .scene-5 #first-grid .top-left .fifth {
   opacity: 1;
+  z-index: 4;
 }
 
 @media screen and (max-width: 767px) {
@@ -478,6 +483,7 @@ body {
 
 .text-static {
   max-width: 19vw !important;
+  z-index: 1;
 }
 
 .mobile-bottom {
@@ -665,5 +671,9 @@ body {
     border-right: 5px solid #152319;
     height: 100%;
     transition: all 1s;
+  }
+
+  #second-grid .top-right .cell-image .fourth {
+    overflow: hidden;
   }
 }
