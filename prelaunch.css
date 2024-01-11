@@ -519,6 +519,12 @@ body {
     padding: 10vw;
   }
 
+  .mobile-bottom div.fourth .div-block-20 {
+    display: flex;
+    flex-direction: row;
+    margin-top: 3em;
+  }
+
   #first-grid .top-left .first {
     min-width: 90vw;
     max-width: 90vw;
