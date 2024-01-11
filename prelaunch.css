@@ -33,6 +33,7 @@ body {
   grid-template-rows: 30% auto;
 }
 
+.scene-1 .down-arrow,
 .scene-1 #first-grid .top-left .first,
 .scene-1 #second-grid .bottom-right .first,
 .scene-1 #second-grid .top-right .cell-image .first {

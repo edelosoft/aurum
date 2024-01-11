@@ -84,6 +84,11 @@
     font-size: clamp(8px, 0.5vw, 12px) !important;
 }
 
+.text-block-7 {
+    font-size: 32px;
+    font-size: clamp(32px, 2vw, 52px) !important;
+}
+
 .text-static {
     max-width: 19vw !important;
     z-index: 1;
@@ -112,6 +117,20 @@
     display: none;
 }
 
+.div-block-37 {
+    overflow: hidden;
+}
+
+.w-embed {
+    top: -50px;
+    position: relative;
+}
+
+.down-arrow {
+    transition: all 1s;
+    transform: translate(-50%, -50%);
+}
+
 @media screen and (max-width: 1399px) and (min-width: 1199px) {
     .text-block-4.text-static {
         padding-right: 40px;
@@ -138,6 +157,15 @@
 }
 
 @media screen and (max-width: 767px) {
+    .down-arrow { 
+        width: 20px;
+        bottom: 10px;
+    }
+
+    .div-block-38 {
+        flex-direction: column;
+    }
+
     .top-register.desktop {
         display: none;
     }
