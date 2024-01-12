@@ -110,6 +110,7 @@ body {
 .scene-3 .text-grow,
 .scene-2 .text-grow {
   max-width: 30vw;
+  transition: all 1.5s !important;
 }
 
 .scene-2 #first-grid .top-left .first,
@@ -146,6 +147,10 @@ body {
 .scene-5 .top-register {
   opacity: 1;
   pointer-events: all;
+}
+
+.scene-1 #main-grid{ 
+    height: 100dvh;
 }
 
 @media screen and (max-width: 767px) {   
@@ -353,11 +358,11 @@ body {
 }    
 
 .scene-5 #first-grid {
-  grid-template-rows: 47% auto;
+  grid-template-rows: 50% auto;
 }    
 
 .scene-5 #second-grid {
-  grid-template-rows: 53% auto;
+  grid-template-rows: 55% auto;
 }
 
 .scene-5 #first-grid .top-left .first,
