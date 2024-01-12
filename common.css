@@ -135,6 +135,10 @@
     transform: translate(-50%, -50%) rotate(180deg);
 }
 
+.top-register {
+    pointer-events: none;
+}
+
 @media screen and (max-width: 1399px) and (min-width: 1199px) {
     .text-block-4.text-static {
         padding-right: 40px;

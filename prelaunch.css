@@ -145,6 +145,7 @@ body {
 .scene-4 .top-register,
 .scene-5 .top-register {
   opacity: 1;
+  pointer-events: all;
 }
 
 @media screen and (max-width: 767px) {   
