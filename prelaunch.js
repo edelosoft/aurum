@@ -23,7 +23,7 @@
         $('#second-grid .top-right .fifth').appendTo('.mobile-bottom');
         $('#second-grid .bottom-right .fifth').appendTo('.mobile-bottom');
 
-        $('.div-block-20').appendTo('.mobile-bottom .fourth');
+        $('.div-block-20').appendTo('.mobile-bottom .fourth:not(.image-holder)');
 
         var serene = $('#first-grid .top-left .third');
         replaceClass(serene, 'third', 'fourth');

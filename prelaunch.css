@@ -160,6 +160,11 @@ body {
     opacity: 1;
   }
 
+  .scene-1 #second-grid .bottom-right .first .fine-print,
+  .scene-2 #second-grid .bottom-right .first .fine-print {
+    opacity: 0;
+  }
+
   .scene-2 #main-grid,
   .scene-3 #main-grid,
   .scene-4 #main-grid,

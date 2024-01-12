@@ -172,7 +172,20 @@
     }
 }
 
-@media screen and (max-width: 767px) {    
+@media screen and (max-width: 767px) {
+    .mobile-bottom .image-holder .fine-print {
+        top: unset;
+        bottom: 10px;
+    }
+
+    .mobile-bottom .image-5 {
+        position: relative;
+    }
+
+    .mobile-bottom .image-holder {
+        padding: 0px !important;
+    }
+
     .w-embed {
         margin-left: -10px;
         margin-right: -10px;
