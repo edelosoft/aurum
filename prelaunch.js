@@ -76,6 +76,10 @@
 
     function initButtons() {
         $('.markers .circle').click(function(e) {
+            var i = $(this).data("index") - 1; 
+            var start = i < 0 ? 0 : (screenHeight * i) + (screenHeight / 2);
+            var body = $("html, body");
+            body.stop().animate({ scrollTop: start }, 1000, 'swing');
         });
 
         $('.register-button').click(function(e) {
@@ -84,7 +88,7 @@
 
             var top = $('.div-block-35').offset().top;
             var body = $("html, body");
-            body.stop().animate({ scrollTop: top }, 500, 'swing');
+            body.stop().animate({ scrollTop: top }, 1000, 'swing');
         });
     }
 
