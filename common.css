@@ -115,6 +115,7 @@
     position: absolute;
     left: 0;
     border-top: 5px solid #152319;
+    z-index: 99;
 }
 
 .bottom-right .fourth.mobile {
@@ -140,6 +141,10 @@
 .w-embed {
     top: -90px;
     position: relative;
+}
+
+.w-embed > div {
+    margin-bottom: -160px;
 }
 
 .down-arrow {
@@ -185,6 +190,10 @@
 }
 
 @media screen and (max-width: 767px) {
+    .w-embed > div {
+        margin-bottom: -120px;
+    }
+
     .mobile-bottom .image-holder .fine-print {
         top: unset;
         bottom: 10px;
