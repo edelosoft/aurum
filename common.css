@@ -139,6 +139,10 @@
     pointer-events: none;
 }
 
+.circle.active {
+    background-color: #152319;
+}
+
 @media screen and (max-width: 1399px) and (min-width: 1199px) {
     .text-block-4.text-static {
         padding-right: 40px;

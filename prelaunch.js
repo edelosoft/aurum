@@ -56,7 +56,6 @@
     }, 300);    
 
     $('#pc-iframe').on("load",function(){
-        console.log('here');
         var screenHeight = $(window).height();    
         var totalScrollHeight = screenHeight * numScenes;
 
@@ -68,11 +67,26 @@
 
     $(document).ready(function() {
         scrollScene();
+        initButtons();
     });
 
     $(window).scroll(function() {
         scrollScene();
     });
+
+    function initButtons() {
+        $('.markers .circle').click(function(e) {
+        });
+
+        $('.register-button').click(function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+
+            var top = $('.div-block-35').offset().top;
+            var body = $("html, body");
+            body.stop().animate({ scrollTop: top }, 500, 'swing');
+        });
+    }
 
     function recalc(sectionHeight) {
         $('.div-block-35').css('min-height', 'calc(100vh - ' + $('.footer-container').outerHeight(true) + 'px)');
@@ -128,6 +142,8 @@
         }
 
         $('.animation-section').addClass('scene-' + scene);
+        $('.circle').removeClass('active');
+        $('.marker-' + scene + '.circle').addClass('active');
         prevScene = scene;
     }
 
