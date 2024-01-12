@@ -147,10 +147,6 @@
     background-color: #152319;
 }
 
-#main-grid {
-    transition: none;
-}
-
 @media screen and (max-width: 1399px) and (min-width: 1199px) {
     .text-block-4.text-static {
         padding-right: 40px;
