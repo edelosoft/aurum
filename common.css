@@ -190,6 +190,10 @@
 }
 
 @media screen and (max-width: 767px) {
+    .div-block-26 {
+        align-items: center;
+    }
+
     .w-embed > div {
         margin-bottom: -120px;
     }
