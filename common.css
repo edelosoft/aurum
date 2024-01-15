@@ -33,13 +33,6 @@
     height: 55vh;
 }
 
-#second-grid .top-right .cell-image .third {
-    min-width: 50vw;
-    width: 50vw;
-    min-height: 55vh;
-    height: 55vh;
-}
-
 #second-grid .bottom-right .third {
     min-width: 55vw;
     width: 55vw;
