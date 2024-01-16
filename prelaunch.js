@@ -90,6 +90,11 @@
             var body = $("html, body");
             body.stop().animate({ scrollTop: top }, 1000, 'swing');
         });
+
+        $('.footer-arrow').click(function() {
+            var body = $("html, body");
+            body.stop().animate({ scrollTop: 0 }, 1000, 'swing');
+        });
     }
 
     function recalc(sectionHeight) {

@@ -335,6 +335,11 @@ body {
   z-index: 4;
 }
 
+.scene-5 .sticker,
+.scene-4 .sticker {
+  opacity: 0;
+}
+
 @media screen and (max-width: 767px) {
   .scene-4 #second-grid .bottom-right .fourth {
     opacity: 1;

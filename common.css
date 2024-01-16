@@ -132,12 +132,23 @@
 }
 
 .w-embed {
-    top: -90px;
+    top: -125px;
     position: relative;
+    overflow: hidden;
 }
 
 .w-embed > div {
-    margin-bottom: -160px;
+    margin-bottom: -100px;
+}
+
+.w-embed::after {
+    content: '';
+    position: absolute;
+    top: 750px;
+    width: 100%;
+    height: 50px;
+    z-index: 1000;
+    background-color: #152319;
 }
 
 .down-arrow {
@@ -155,6 +166,15 @@
 
 .circle.active {
     background-color: #152319;
+}
+
+.footer-arrow {
+    cursor: pointer;
+}
+
+.footer-sticker {
+    opacity: 1 !important;
+    display: block !important;
 }
 
 @media screen and (max-width: 1399px) and (min-width: 1199px) {
@@ -183,12 +203,20 @@
 }
 
 @media screen and (max-width: 767px) {
+    .div-block-40 {
+        padding-bottom: 5em;
+    }
+    
+    .w-embed::after {
+        top: 775px;
+    }
+
     .div-block-26 {
         align-items: center;
     }
 
     .w-embed > div {
-        margin-bottom: -120px;
+        margin-bottom: -50px;
     }
 
     .mobile-bottom .image-holder .fine-print {
