@@ -132,23 +132,13 @@
 }
 
 .w-embed {
-    top: -125px;
+    top: -135px;
     position: relative;
     overflow: hidden;
 }
 
 .w-embed > div {
     margin-bottom: -100px;
-}
-
-.w-embed::after {
-    content: '';
-    position: absolute;
-    top: 750px;
-    width: 100%;
-    height: 50px;
-    z-index: 1000;
-    background-color: #152319;
 }
 
 .down-arrow {
@@ -217,10 +207,6 @@
         padding-bottom: 5em;
     }
     
-    .w-embed::after {
-        top: 775px;
-    }
-
     .w-embed > div {
         margin-bottom: -50px;
     }
@@ -241,7 +227,6 @@
     .w-embed {
         margin-left: -10px;
         margin-right: -10px;
-        top: -70px;
     }
 
     .down-arrow { 

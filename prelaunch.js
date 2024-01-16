@@ -46,10 +46,10 @@
         img = $('#second-grid .top-right .second');
         replaceClass(img, 'second', 'first');
         img.appendTo('#second-grid .bottom-right .slides-container');        
-    }
 
-    $('.footer-wrapper').appendTo('.mobile-bottom');
-    $('.footer').remove();
+        $('.footer-wrapper').appendTo('.mobile-bottom');
+        $('.footer').remove();
+    }
 
     setTimeout(function() {        
         recalc(sectionHeight);
