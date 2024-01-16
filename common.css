@@ -184,9 +184,11 @@
 }
 
 @media screen and (max-width: 1199px) {
-
     .footer-container .div-block-25 img,
-    .footer-container .div-block-26 img,
+    .footer-container .div-block-26 img {
+        width: 120px;
+    }
+
     .cell-container.green .logos img {
         width: 80px;
     }
@@ -203,16 +205,20 @@
 }
 
 @media screen and (max-width: 767px) {
+    .mobile-bottom .fifth {
+        border-top: 5px solid #152319;
+    }
+
+    .mobile-bottom .fourth {
+        border-bottom: 5px solid #152319;
+    }
+
     .div-block-40 {
         padding-bottom: 5em;
     }
     
     .w-embed::after {
         top: 775px;
-    }
-
-    .div-block-26 {
-        align-items: center;
     }
 
     .w-embed > div {
@@ -265,10 +271,6 @@
 
     .top-right .top-register {
         display: flex;
-    }
-
-    .footer-container .div-block-26 img {
-        width: 90px;
     }
 
     .aurum-logo {
@@ -415,7 +417,7 @@
     }
 
     .sticker {
-        display: none;
+        padding-left: 10vw
     }
 
     .top-register {
