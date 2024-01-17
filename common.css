@@ -167,6 +167,35 @@
     display: block !important;
 }
 
+#first-grid .top-left .sixth {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    overflow: auto;
+    min-width: 100vw;
+}
+  
+#first-grid .top-left .sixth > div {
+    opacity: 1 !important;
+    position: relative;
+    min-height: unset !important;
+    height: unset;
+}
+
+#first-grid .top-left .sixth .image-holder {
+    min-height: unset !important;
+    padding: 0px;
+    height: unset !important;
+}
+
+#first-grid .top-left .sixth .image-holder img {
+    height: auto;
+    position: relative;
+}
+
 @media screen and (max-width: 1399px) and (min-width: 1199px) {
     .text-block-4.text-static {
         padding-right: 40px;
@@ -195,11 +224,11 @@
 }
 
 @media screen and (max-width: 767px) {
-    .mobile-bottom .fifth {
-        border-top: 5px solid #152319;
+    .sixth .fifth {
+        border-bottom: 5px solid #152319;
     }
 
-    .mobile-bottom .fourth {
+    .sixth .fourth {
         border-bottom: 5px solid #152319;
     }
 
@@ -211,20 +240,21 @@
         margin-bottom: -50px;
     }
 
-    .mobile-bottom .image-holder .fine-print {
+    .sixth .image-holder .fine-print {
         top: unset;
         bottom: 10px;
     }
 
-    .mobile-bottom .image-5 {
+    .sixth .image-5 {
         position: relative;
     }
 
-    .mobile-bottom .image-holder {
+    .sixth .image-holder {
         padding: 0px !important;
     }
 
     .w-embed {
+        top: -110px;
         margin-left: -10px;
         margin-right: -10px;
     }
@@ -285,18 +315,18 @@
         padding: 10vw;
     }
 
-    .mobile-bottom .fifth,
-    .mobile-bottom .fourth {
+    .sixth .fifth,
+    .sixth .fourth {
         position: relative;
         opacity: 1;
     }
 
-    .mobile-bottom div.fifth,
-    .mobile-bottom div.fourth {
+    .sixth div.fifth,
+    .sixth div.fourth {
         padding: 10vw;
     }
 
-    .mobile-bottom div.fourth .div-block-20 {
+    .sixth div.fourth .div-block-20 {
         display: flex;
         flex-direction: row;
         margin-top: 3em;

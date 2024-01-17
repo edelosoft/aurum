@@ -38,7 +38,7 @@
     });
 
     function createSixthScene() {
-        $('.top-left').append('<div class="sixth"></div>');
+        $('.top-left .cell-container').append('<div class="sixth"></div>');
 
         var sixth = '.top-left .sixth';
 
@@ -51,7 +51,7 @@
         $('#second-grid .top-right .fifth').appendTo(sixth);
         $('#second-grid .bottom-right .fifth').appendTo(sixth);
 
-        // $('.div-block-20').appendTo('.mobile-bottom .fourth:not(.image-holder)');
+        $('.div-block-20').appendTo(sixth + ' .fourth:not(.image-holder)');
     }
 
     function rearrangeMobile() {
@@ -85,8 +85,8 @@
         img.appendTo('#second-grid .bottom-right .slides-container');        
 
         // $('.mobile-bottom').remove();
-        // $('.footer-wrapper').appendTo('.mobile-bottom');
-        // $('.footer').remove();
+        $('.footer-wrapper').appendTo('.sixth');
+        $('.footer').remove();
     }
 
     function initButtons() {
@@ -128,13 +128,13 @@
 
     function scrollScene() {
         var top = $(window).scrollTop();
-        log(top);
+        log(numScenes);
 
         var sceneIndex = 0;
         for (var i = 0; i < numScenes; i++) {
             var start = (screenHeight * i) + (screenHeight / 2);
             var end = start + (screenHeight / 2);
-            log(top + " " + start + " " + end);
+            log(top + " " + start + " " + end + " " + i);
             if (top >= start && top <= end) {
                 changedScene = true;
                 sceneIndex = i + 1;
@@ -142,9 +142,13 @@
             } else if (top >= 0 && top < screenHeight / 2) {
                 sceneIndex = 0;
                 break;
-            } else if (top >= end && i == numScenes - 1) {
+            } else if (top >= end && i == numScenes - 2) {  
                 changedScene = true;
-                sceneIndex = 4;
+                sceneIndex = numScenes;
+                break;
+            } else if (top >= end && i == numScenes - 1) {    
+                changedScene = true;
+                sceneIndex = numScenes - 1;
                 break;
             } else {
                 changedScene = false;
