@@ -109,6 +109,18 @@
     left: 0;
     border-top: 5px solid #152319;
     z-index: 99;
+    transition: all 1s;
+    opacity: 0;
+}
+
+.mobile-bottom.active {
+    opacity: 1;
+}
+
+#main-grid.invisible {
+    opacity: 0;    
+    transform: translateY(-100%);
+    transition: all 1s, transform 1.4s, opacity 1s!important;
 }
 
 .bottom-right .fourth.mobile {
@@ -225,6 +237,7 @@
     }
 
     .w-embed {
+        top: -110px;
         margin-left: -10px;
         margin-right: -10px;
     }
