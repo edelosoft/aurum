@@ -75,7 +75,10 @@
     font-size: clamp(50px, 5vw, 90px);
 }
 
-.text-static,
+.text-static {
+    font-size: clamp(12px, 1vw, 14px) !important;
+}
+
 .sticker,
 .content-text {
     font-size: clamp(12px, 1vw, 18px) !important;

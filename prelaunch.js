@@ -76,7 +76,7 @@
     function getTotalScrollHeight() {
         var screenHeight = getScreenHeight();    
         var totalScreenHeight = screenHeight * numScenes;
-        return isMobile() ?  totalScreenHeight : totalScreenHeight + screenHeight;
+        return isMobile() ?  totalScreenHeight : totalScreenHeight + (screenHeight / 2);
     }
 
     function getScreenHeight() {
