@@ -428,3 +428,43 @@ body {
     transition: all 1.5s;
   }
 }
+
+/* Scene 6 */
+#first-grid .top-left .sixth {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  overflow: auto;
+}
+
+#first-grid .top-left .sixth > div {
+  opacity: 1 !important;
+  position: relative;
+}
+
+.scene-6 #main-grid {
+  grid-template-columns: 100% 1fr;
+}    
+
+.scene-6 #first-grid {
+  grid-template-rows: 100% auto;
+}    
+
+.scene-6 #second-grid {
+  grid-template-rows: 0% auto;
+}
+
+.scene-6 #first-grid .top-left .first,
+.scene-6 #first-grid .top-left .second,
+.scene-6 #first-grid .top-left .third,
+.scene-6 #first-grid .top-left .fourth,
+.scene-6 #first-grid .top-left .fifth {
+  opacity: 0;
+}
+
+.scene-6 #first-grid .top-left .sixth {
+  opacity: 1;
+}

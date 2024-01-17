@@ -13,17 +13,54 @@
     var sectionHeight = totalScrollHeight + screenHeight;     
     $('.mobile-bottom').css('top', sectionHeight + 'px');
 
-    if ($(window).width() < 768) {
-        $('#first-grid .top-left .fourth').appendTo('.mobile-bottom');
-        $('#second-grid .top-right .cell-image .fourth').appendTo('.mobile-bottom');      
+    rearrangeMobile();
 
-        $('#first-grid .bottom-left .fifth').appendTo('.mobile-bottom');
-        $('#first-grid .top-left .fifth').appendTo('.mobile-bottom');
+    setTimeout(function() {        
+        recalc(sectionHeight);
+    }, 300);    
 
-        $('#second-grid .top-right .fifth').appendTo('.mobile-bottom');
-        $('#second-grid .bottom-right .fifth').appendTo('.mobile-bottom');
+    $('#pc-iframe').on("load",function(){  
+        var screenHeight = $(window).height() / 2;    
+        var totalScrollHeight = screenHeight * numScenes;
 
-        $('.div-block-20').appendTo('.mobile-bottom .fourth:not(.image-holder)');
+        var sectionHeight = totalScrollHeight + screenHeight;     
+        $('.mobile-bottom').css('top', sectionHeight + 'px');
+        recalc(sectionHeight);
+    });
+
+    $(document).ready(function() {
+        scrollScene();
+        initButtons();
+    });
+
+    $(window).scroll(function() {
+        scrollScene();
+    });
+
+    function createSixthScene() {
+        $('.top-left').append('<div class="sixth"></div>');
+
+        var sixth = '.top-left .sixth';
+
+        $('#first-grid .top-left .fourth').appendTo(sixth);
+        $('#second-grid .top-right .cell-image .fourth').appendTo(sixth);      
+
+        $('#first-grid .bottom-left .fifth.image-holder').appendTo(sixth);
+        $('#first-grid .top-left .fifth.content-block').appendTo(sixth);
+
+        $('#second-grid .top-right .fifth').appendTo(sixth);
+        $('#second-grid .bottom-right .fifth').appendTo(sixth);
+
+        // $('.div-block-20').appendTo('.mobile-bottom .fourth:not(.image-holder)');
+    }
+
+    function rearrangeMobile() {
+        if ($(window).width() >= 768) return;
+
+        numScenes = 6;
+        totalScrollHeight = screenHeight * numScenes;
+
+        createSixthScene();
 
         var serene = $('#first-grid .top-left .third');
         replaceClass(serene, 'third', 'fourth');
@@ -47,31 +84,10 @@
         replaceClass(img, 'second', 'first');
         img.appendTo('#second-grid .bottom-right .slides-container');        
 
-        $('.footer-wrapper').appendTo('.mobile-bottom');
-        $('.footer').remove();
+        // $('.mobile-bottom').remove();
+        // $('.footer-wrapper').appendTo('.mobile-bottom');
+        // $('.footer').remove();
     }
-
-    setTimeout(function() {        
-        recalc(sectionHeight);
-    }, 300);    
-
-    $('#pc-iframe').on("load",function(){  
-        var screenHeight = $(window).height() / 2;    
-        var totalScrollHeight = screenHeight * numScenes;
-
-        var sectionHeight = totalScrollHeight + screenHeight;     
-        $('.mobile-bottom').css('top', sectionHeight + 'px');
-        recalc(sectionHeight);
-    });
-
-    $(document).ready(function() {
-        scrollScene();
-        initButtons();
-    });
-
-    $(window).scroll(function() {
-        scrollScene();
-    });
 
     function initButtons() {
         $('.markers .circle').click(function(e) {
