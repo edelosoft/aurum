@@ -77,7 +77,7 @@
     });
 
     function getScreenHeight() {
-        return isMobile() ? $(window).height() : $(window).height() / 2;
+        return isMobile() ? $(window).height() * 1.5 : $(window).height() / 2;
     }
 
     function initButtons() {
