@@ -1,5 +1,5 @@
 (function ($) {
-    var screenHeight = $(window).height() / 2;    
+    var screenHeight = $(window).width() >= 768 ? $(window).height() / 2 : $(window).height();    
     var totalScrollHeight = screenHeight * numScenes;
     var numScenes = 5;
     var changedScene = false;
@@ -20,7 +20,7 @@
     }, 300);    
 
     $('#pc-iframe').on("load",function(){  
-        var screenHeight = $(window).height() / 2;    
+        var screenHeight = $(window).width() >= 768 ? $(window).height() / 2 : $(window).height();    
         var totalScrollHeight = screenHeight * numScenes;
 
         var sectionHeight = totalScrollHeight + screenHeight;     
