@@ -13,7 +13,7 @@
     log(numScenes);
     log(totalScrollHeight);
 
-    var sectionHeight = totalScrollHeight;     
+    var sectionHeight = getTotalScrollHeight();     
     $('.mobile-bottom').css('top', sectionHeight + 'px');
 
     if ($(window).width() < 768) {
@@ -59,10 +59,7 @@
     }, 300);    
 
     $('#pc-iframe').on("load",function(){  
-        var screenHeight = getScreenHeight();    
-        var totalScrollHeight = screenHeight * numScenes;
-
-        var sectionHeight = totalScrollHeight;     
+        var sectionHeight = getTotalScrollHeight();     
         $('.mobile-bottom').css('top', sectionHeight + 'px');
         recalc(sectionHeight);
     });
@@ -76,8 +73,14 @@
         scrollScene();
     });
 
+    function getTotalScrollHeight() {
+        var screenHeight = getScreenHeight();    
+        var totalScreenHeight = screenHeight * numScenes;
+        return isMobile() ?  totalScreenHeight : totalScreenHeight + screenHeight;
+    }
+
     function getScreenHeight() {
-        return isMobile() ? $(window).height() * 1.5 : $(window).height() / 2;
+        return isMobile() ? $(window).height() * 1.5 : $(window).height();
     }
 
     function initButtons() {
