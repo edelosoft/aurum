@@ -428,8 +428,4 @@ body {
     transform: translate3d(0px, 0px, 0px);
     transition: all 1.5s;
   }
-
-  .scene-5 #main-grid  {
-    grid-column-gap: 5px;
-  }
 }
