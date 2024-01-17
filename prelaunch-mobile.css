@@ -1,19 +1,15 @@
 /* Scene 6 */
 .scene-6 #main-grid {
     grid-template-columns: 100% 1fr;
-    animation-duration: 3s;
-    animation-name: borderslideout;
-    animation-fill-mode: both;
+    overflow-x: hidden;
 }
   
-@keyframes borderslideout {
-    from {
-        grid-column-gap: 5px;
-    }
-  
-    to {
-        grid-column-gap: 0px;
-    }
+.scene-6 #main-grid::after {
+    right: -5px;
+    position: absolute;
+    content: '';
+    height: 100%;
+    border-right: 5px solid #152319;
 }
 
 .scene-6 #first-grid {

@@ -4,7 +4,7 @@
     var numScenes = 5;
     var changedScene = false;
     var prevScene = 1;
-    var debug = false;
+    var debug = true;
 
     log(screenHeight);
     log(numScenes);
@@ -52,6 +52,15 @@
         $('#second-grid .bottom-right .fifth').appendTo(sixth);
 
         $('.div-block-20').appendTo(sixth + ' .fourth:not(.image-holder)');
+
+        $('.sixth').scroll(function() {
+            var top = $('.sixth').scrollTop();
+            if (top == 0) {                
+                var start = (screenHeight * 4) + ($(window).height() / 2);
+                var body = $("html, body");
+                body.scrollTop(start);
+            }
+        })
     }
 
     function rearrangeMobile() {
@@ -128,11 +137,11 @@
 
     function scrollScene() {
         var top = $(window).scrollTop();
-        log(numScenes);
+        log("num: " + numScenes);
 
         var sceneIndex = 0;
         for (var i = 0; i < numScenes; i++) {
-            var start = (screenHeight * i) + (screenHeight / 2);
+            var start = (screenHeight * i) + 100;
             var end = start + (screenHeight / 2);
             log(top + " " + start + " " + end + " " + i);
             if (top >= start && top <= end) {
@@ -141,10 +150,6 @@
                 break;
             } else if (top >= 0 && top < screenHeight / 2) {
                 sceneIndex = 0;
-                break;
-            } else if (top >= end && i == numScenes - 2) {  
-                changedScene = true;
-                sceneIndex = numScenes;
                 break;
             } else if (top >= end && i == numScenes - 1) {    
                 changedScene = true;
