@@ -403,6 +403,7 @@ body {
   .scene-5 #second-grid .top-right .cell-image .fourth {
     opacity: 1;
     height: 50vh;    
+    min-width: 100vw;    
   }
 
   .scene-5 #main-grid {
@@ -457,4 +458,8 @@ body {
 
 .scene-6 #first-grid .top-left .sixth {
   opacity: 1;
+}
+
+.scene-6 #second-grid .top-right .cell-image .fourth {
+  min-width: 100vw;    
 }
