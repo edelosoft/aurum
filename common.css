@@ -1,4 +1,8 @@
 /* Common */
+body.touch-lock {
+    overflow: hidden !important;
+}
+
 #second-grid .bottom-right .second {
     max-width: calc(45vw - 10px);
     max-height: calc(55vh - 10px);
@@ -114,10 +118,15 @@
     z-index: 99;
     transition: all 1s;
     opacity: 0;
+    pointer-events: none;
 }
 
 .mobile-bottom.active {
     opacity: 1;
+}
+
+#main-grid {
+    height: 100dvh;
 }
 
 #main-grid.invisible {

@@ -1,20 +1,21 @@
 (function ($) {
     var screenHeight = getScreenHeight();
     var totalScrollHeight = screenHeight * numScenes;
-    var numScenes = 5;
-    var changedScene = false;
+    var numScenes = isMobile() ? 6 : 5;
     var prevScene = 1;
     var debug = false;
-    var prevTop = 0;
-    var handling = false;
-    var registering = false;
+    var prevResult = null;
+    var currScene = 1;
+    var prevScene = 1;
+    var mobileBottomHeight = 0;
+    var touchstartY = 0;
+    var touchendY = 0;
+    var touchmoveY = 0;
+    var hasMobileTouch = false;
 
     log(screenHeight);
     log(numScenes);
     log(totalScrollHeight);
-
-    var sectionHeight = getTotalScrollHeight();     
-    $('.mobile-bottom').css('top', sectionHeight + 'px');
 
     if ($(window).width() < 768) {
         $('#first-grid .top-left .fourth').appendTo('.mobile-bottom');
@@ -55,69 +56,179 @@
     }
 
     setTimeout(function() {        
-        recalc(sectionHeight);
+        recalc();
     }, 300);    
 
     $('#pc-iframe').on("load",function(){  
-        var sectionHeight = getTotalScrollHeight();     
-        $('.mobile-bottom').css('top', sectionHeight + 'px');
-        recalc(sectionHeight);
+        $('.mobile-bottom').css('top', getScreenHeight() + 'px');
+        mobileBottomHeight = $('.mobile-bottom').outerHeight(true);
     });
 
+    var lethargy = new Lethargy();
+
+    // Define the function to run on mousewheel
+    var checkScroll = function (e) {
+        // e.preventDefault()
+        // e.stopPropagation();
+
+        // Lethargy.check() must only be called once per mouse event
+        // If you need to use the result in more than one place
+        // you MUST store it as a variable and use that variable instead
+        // See https://github.com/d4nyll/lethargy/issues/5
+        var result = lethargy.check(e);
+        log(result);
+
+        // false means it's not a scroll intent, 1 or -1 means it is
+        // console.log(result);
+        if (result !== false && prevResult != result) {            
+            var direction = result === -1 ? 'down' : 'up';
+            scrollScene(direction);
+        }
+
+        prevResult = result;
+    };   
+   
+    if ('ontouchstart' in document.documentElement) {
+        hasMobileTouch = true;
+        $('body').addClass('touch-lock');
+
+        window.addEventListener('touchstart', e => {
+            touchstartY = e.changedTouches[0].screenY;
+            // console.log('touch start');
+        })
+        
+        window.addEventListener('touchend', e => {
+            touchendY = e.changedTouches[0].screenY;
+            // console.log('touch end');
+            checkDirection()
+        })
+    } else {
+        // Cross-browser way to bind to mouse events
+        addEvent(window, 'mousewheel', checkScroll);
+        addEvent(window, 'DOMMouseScroll', checkScroll);
+        addEvent(window, 'wheel', checkScroll);
+        addEvent(window, 'MozMousePixelScroll', checkScroll);   
+
+    }
+
+    function checkDirection() {
+        if (touchendY < touchstartY) {
+            scrollScene('down');
+        }
+
+        if (touchendY > touchstartY) {                
+            scrollScene('up');
+        }
+    }
+
+    function addEvent(el, eventType, handler) {
+        if (el.addEventListener) { // DOM Level 2 browsers
+            el.addEventListener(eventType, handler, false);
+        } else if (el.attachEvent) { // IE <= 8
+            el.attachEvent('on' + eventType, handler);
+        } else { // ancient browsers
+            el['on' + eventType] = handler;
+        }
+    };
+
+    function scrollScene(direction) {
+        if (currScene != numScenes && direction == 'down') {
+            currScene++;
+        } else if (currScene != 1 && direction == 'up') {
+            currScene--;
+        }
+
+        if (currScene != numScenes) {
+            $(window).scrollTop(0);            
+        }
+                
+        if (prevScene && prevScene != currScene) {
+            $('.animation-section').removeClass('scene-' + prevScene);
+            recalc();
+        }
+
+        handleMobileScroll();
+
+        $('.animation-section').addClass('scene-' + currScene);
+        $('.circle').removeClass('active');
+        $('.marker-' + currScene + '.circle').addClass('active');
+
+        prevScene = currScene;
+    }
+
+    function handleMobileScroll() {
+        if (currScene < 6 && !$('body').hasClass('touch-lock') && hasMobileTouch) {
+            $('body').addClass('touch-lock');
+        }
+
+        if (currScene != 6 || $('.animation-section').hasClass('scene-6')) {
+            return;
+        }
+
+        $(window).scrollTop(0);
+        $('body').removeClass('touch-lock');
+        $('.mobile-bottom').addClass('fixed');
+        $('html, body').css('overflow', 'hidden');
+        setTimeout(function() {
+            $(window).scrollTop(0);
+            $('html, body').css('overflow', '');
+            $('.mobile-bottom').removeClass('fixed');
+        }, 1500);
+
+        $('.animation-section').css('height', mobileBottomHeight + 'px');
+    }
+
     $(document).ready(function() {
-        scrollScene();
         initButtons();
     });
 
-    $(window).scroll(function() {
-        scrollScene();
-    });
-
     function getTotalScrollHeight() {
-        var screenHeight = getScreenHeight();    
-        var totalScreenHeight = screenHeight * numScenes;
-        return isMobile() ?  totalScreenHeight : totalScreenHeight + (screenHeight / 2);
+        var factor = currScene == 5 && !isMobile() ? 1.25 : 2 ;
+        return getScreenHeight() * numScenes * factor;
     }
 
     function getScreenHeight() {
-        return isMobile() ? $(window).height() * 1.5 : $(window).height();
+        return  $(window).height();
     }
 
     function initButtons() {
         $('.markers .circle').click(function(e) {
-            var i = $(this).data("index") - 1; 
-            var start = i < 0 ? 0 : (screenHeight * i) + (screenHeight / 2);
-            var body = $("html, body");
-            body.stop().animate({ scrollTop: start }, 1000, 'swing');
+            currScene = $(this).data("index");
+            scrollScene('down');
         });
 
         $('.register-button').click(function(e) {
             e.stopPropagation();
             e.preventDefault();
 
-            registering = true;
-            $('.mobile-bottom').addClass('active');
+            currScene = isMobile() ? 6 : 5;
+            scrollScene('down');
 
-            var top = $('.div-block-35').offset().top;
-            console.log(top);
-            var body = $("html, body");
-            body.stop().animate({ scrollTop: top + 5 }, 1000, 'swing', function() {
-                registering = false;
-            });
+            if (isMobile()) {
+                setTimeout(function() {
+                    scrollToForm();
+                }, 1600);
+            } else {
+                scrollToForm();
+            }
         });
 
         $('.footer-arrow').click(function() {
-            var body = $("html, body");
-            body.stop().animate({ scrollTop: 0 }, 1000, 'swing');
+            currScene = 0;
+            scrollScene('down');
+            $(window).scrollTop(0);
         });
     }
 
-    function recalc(sectionHeight) {
+    function scrollToForm() {
+        var top = $('.div-block-35').offset().top;
+        var body = $("html, body");
+        body.stop().animate({ scrollTop: top + 5 }, 1000, 'swing');
+    }
+
+    function recalc() {
+        var sectionHeight = getTotalScrollHeight();
         $('.div-block-35').css('min-height', 'calc(100vh - ' + $('.footer-container').outerHeight(true) + 'px)');
-
-        var mobileBottomHeight = $('.mobile-bottom').outerHeight(true);
-        sectionHeight += mobileBottomHeight;
-
         $('.animation-section').css('height', sectionHeight + 'px');   
     }
 
@@ -128,97 +239,6 @@
 
     function isMobile() {
         return $(window).width() < 768;
-    }
-
-    function scrollScene() {
-        var top = $(window).scrollTop();
-        log(prevTop + " " + top);
-
-        handleMobileScroll(top)
-
-        var sceneIndex = 0;
-        for (var i = 0; i < numScenes; i++) {
-            var start = (screenHeight * i) + (screenHeight / 2);
-            var end = start + (screenHeight / 2);
-            log(top + " " + start + " " + end);
-            if (top >= start && top <= end) {
-                changedScene = true;
-                sceneIndex = i + 1;
-                break;
-            } else if (top >= 0 && top < screenHeight / 2) {
-                sceneIndex = 0;
-                break;
-            } else if (top >= end && i == numScenes - 1) {
-                console.log('here');
-                changedScene = true;
-                sceneIndex = 4;
-
-                if (isMobile()) {
-                    $('.mobile-bottom').addClass('active');
-                }
-                break;
-            } else {
-                changedScene = false;
-            }
-        }
-
-        changeScene(sceneIndex, changedScene);
-        prevTop = top;
-    }
-
-    function handleMobileScroll(top) {
-        if (!isMobile()) return;
-        if (handling) return;
-
-        if (top <= $('.mobile-bottom').offset().top - $(window).height() || top >= $('.mobile-bottom').offset().top) return; 
-
-        if (prevTop < top) {
-            if (!$('.mobile-bottom').hasClass('active')) {    
-                handling = true;
-                $('#main-grid').addClass('invisible');  
-                $('.mobile-bottom').addClass('active');            
-                $('body').css('overflow', 'hidden');
-
-                var body = $("html, body");
-                body.stop().animate({ scrollTop: $('.mobile-bottom').offset().top }, 750, 'swing');
-                setTimeout(function() {
-                    $('body').css('overflow', 'auto');
-                    handling = false;
-                }, 1500);
-            }
-        } else if (prevTop > top) {
-            if ($('.mobile-bottom').hasClass('active')) {
-                handling = true;
-                $('#main-grid').removeClass('invisible');     
-                $('.mobile-bottom').removeClass('active');
-
-                var body = $("html, body");
-                body.stop().animate({ scrollTop: $('.mobile-bottom').offset().top - $(window).height() }, 1000, 'swing');
-
-                $('body').css('overflow', 'hidden');
-                setTimeout(function() {
-                    $('body').css('overflow', 'auto');
-                    handling = false;
-                }, 1500);
-            }
-        } 
-    }
-
-    function changeScene(scene, changedScene) {
-        if (!changedScene) return;
-
-        scene += 1;
-        scene = scene > numScenes ? numScenes : scene;
-        log(scene);
-
-        if (prevScene) {
-            $('.animation-section').removeClass('scene-' + prevScene);
-        }
-
-        $('.animation-section').addClass('scene-' + scene);
-        $('.circle').removeClass('active');
-        $('.marker-' + scene + '.circle').addClass('active');
-        prevScene = scene;
     }
 
     function log(msg) {

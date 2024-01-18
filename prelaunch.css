@@ -212,7 +212,8 @@ body {
   .scene-2 .unveiling-mobile,
   .scene-3 .unveiling-mobile,
   .scene-4 .unveiling-mobile,
-  .scene-5 .unveiling-mobile {
+  .scene-5 .unveiling-mobile,
+  .scene-6 .unveiling-mobile {
     opacity: 1;
     z-index: 5;
     right: 0px;
@@ -354,7 +355,7 @@ body {
   }    
   
   .scene-4 #second-grid {
-    grid-template-rows: 30% auto;
+    grid-template-rows: 35% auto;
   }    
 
   .scene-4 #second-grid .top-right .cell-image .fourth .content-heading {
@@ -414,7 +415,7 @@ body {
   }    
   
   .scene-5 #second-grid {
-    grid-template-rows: 50% auto;
+    grid-template-rows: 55% auto;
   }    
 
   .scene-5 #second-grid .top-right .cell-image .fourth .content-text {
@@ -426,11 +427,5 @@ body {
   .scene-5 #second-grid .top-right .cell-image .fourth .content-heading {
     transform: translate3d(0px, 0px, 0px);
     transition: all 1.5s;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .scene-6 .sixth {
-    left: 0px;
   }
 }

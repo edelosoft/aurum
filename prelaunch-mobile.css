@@ -1,0 +1,85 @@
+/* Scene 5 */
+.scene-6 #main-grid {
+  grid-template-columns: 50% 1fr;
+}    
+
+.scene-6 #first-grid {
+  grid-template-rows: 50% auto;
+}    
+
+.scene-6 #second-grid {
+  grid-template-rows: 55% auto;
+}
+
+.scene-6 #first-grid .top-left .first,
+.scene-6 #first-grid .top-left .second,
+.scene-6 #first-grid .top-left .third,
+.scene-6 #first-grid .top-left .fourth,
+.scene-6 #first-grid .bottom-left .first,
+.scene-6 #second-grid .bottom-right .first,
+.scene-6 #second-grid .bottom-right .second,
+.scene-6 #second-grid .bottom-right .third,
+.scene-6 #second-grid .top-right .cell-image .first,
+.scene-6 #second-grid .top-right .cell-image .second,
+.scene-6 #second-grid .top-right .cell-image .third,
+.scene-6 #second-grid .top-right .cell-image .fourth {
+  opacity: 0;
+}
+
+.scene-6 #second-grid .top-left .fifth,
+.scene-6 #second-grid .top-right .fifth,
+.scene-6 #second-grid .bottom-right .fifth,
+.scene-6 #first-grid .bottom-left .fifth,
+.scene-6 #first-grid .top-left .fifth {
+  opacity: 1;
+  z-index: 4;
+}
+
+@media screen and (max-width: 767px) {
+  .scene-6 #second-grid .top-right .cell-image .fourth {
+    opacity: 1;
+    height: 50vh;    
+  }
+
+  .scene-6 #main-grid {
+    grid-template-columns: 0% 1fr;
+    position: fixed;
+    top: -100dvh;
+    left: 0;
+    width: 100%;
+    grid-column-gap: 0px;
+  }    
+  
+  .scene-6 #first-grid {
+    grid-template-rows: 80% auto;
+  }    
+  
+  .scene-6 #second-grid {
+    grid-template-rows: 50% auto;
+  }    
+
+  .scene-6 #second-grid .top-right .cell-image .fourth .content-text {
+    max-height: 50vh;
+    opacity: 1;
+    transition: all 1s;
+  }
+
+  .scene-6 #second-grid .top-right .cell-image .fourth .content-heading {
+    transform: translate3d(0px, 0px, 0px);
+    transition: all 1.5s;
+  }
+}
+
+.scene-6 .mobile-bottom {
+    opacity: 1;
+    top: 0px !important;
+    pointer-events: all;
+}
+
+.scene-6 .mobile-bottom.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
