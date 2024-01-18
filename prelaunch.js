@@ -135,9 +135,10 @@
         }
     };
 
-    function scrollScene(direction) {
+    function scrollScene(direction, skip) {
+        skip = skip || false;
         var screenBottom = $(window).scrollTop() + $(window).height();
-        if (screenBottom >= $('.footer-wrapper').offset().top) {
+        if (screenBottom >= $('.footer-wrapper').offset().top && !skip) {
             return;
         }
 
@@ -224,7 +225,7 @@
 
         $('.footer-arrow').click(function() {
             currScene = 0;
-            scrollScene('down');
+            scrollScene('down', true);
             $(window).scrollTop(0);
         });
     }
