@@ -106,14 +106,13 @@
             // console.log('touch end');
             checkDirection()
         })
-    } else {
-        // Cross-browser way to bind to mouse events
-        addEvent(window, 'mousewheel', checkScroll);
-        addEvent(window, 'DOMMouseScroll', checkScroll);
-        addEvent(window, 'wheel', checkScroll);
-        addEvent(window, 'MozMousePixelScroll', checkScroll);   
-
     }
+
+    // Cross-browser way to bind to mouse events
+    addEvent(window, 'mousewheel', checkScroll);
+    addEvent(window, 'DOMMouseScroll', checkScroll);
+    addEvent(window, 'wheel', checkScroll);
+    addEvent(window, 'MozMousePixelScroll', checkScroll); 
 
     function checkDirection() {
         if (touchendY < touchstartY) {
@@ -167,8 +166,12 @@
     }
 
     function handleMobileScroll() {
-        if (currScene < 6 && !$('body').hasClass('touch-lock') && hasMobileTouch) {
-            $('body').addClass('touch-lock');
+        if (!isMobile()) {            
+            if (currScene == 5) {
+                $('body').removeClass('touch-lock');    
+            }            
+        } else if (currScene < 6 && !$('body').hasClass('touch-lock') && hasMobileTouch) {
+            $('body').addClass('touch-lock');            
         }
 
         if (currScene != 6 || $('.animation-section').hasClass('scene-6')) {
@@ -189,6 +192,7 @@
     }
 
     $(document).ready(function() {
+        $(window).scrollTop(0);
         initButtons();
     });
 
