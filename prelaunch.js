@@ -99,6 +99,10 @@
         
         window.addEventListener('touchend', e => {
             touchendY = e.changedTouches[0].screenY;
+
+            if (currScene == 6 && isMobile() && $(window).scrollTop() >= $('.mobile-bottom').offset().top + 200) {
+                return;
+            }
             // console.log('touch end');
             checkDirection()
         })
@@ -132,6 +136,11 @@
     };
 
     function scrollScene(direction) {
+        var screenBottom = $(window).scrollTop() + $(window).height();
+        if (screenBottom >= $('.footer-wrapper').offset().top) {
+            return;
+        }
+
         if (currScene != numScenes && direction == 'down') {
             currScene++;
         } else if (currScene != 1 && direction == 'up') {
