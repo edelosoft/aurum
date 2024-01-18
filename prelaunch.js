@@ -197,7 +197,7 @@
     });
 
     function getTotalScrollHeight() {
-        var factor = currScene == 5 && !isMobile() ? 1.25 : 2 ;
+        var factor = currScene == 5 && !isMobile() ? 1.1 : 2 ;
         return getScreenHeight() * numScenes * factor;
     }
 
