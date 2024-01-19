@@ -68,6 +68,7 @@
 
     // Define the function to run on mousewheel
     var checkScroll = function (e) {
+        console.log('scroll');
         // e.preventDefault()
         // e.stopPropagation();
 
