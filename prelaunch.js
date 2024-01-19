@@ -12,6 +12,8 @@
     var touchendY = 0;
     var touchmoveY = 0;
     var hasMobileTouch = false;
+    var scrolling = false;
+    var reachBottom = false;
 
     log(screenHeight);
     log(numScenes);
@@ -68,7 +70,6 @@
 
     // Define the function to run on mousewheel
     var checkScroll = function (e) {
-        console.log('scroll');
         // e.preventDefault()
         // e.stopPropagation();
 
@@ -78,15 +79,19 @@
         // See https://github.com/d4nyll/lethargy/issues/5
         var result = lethargy.check(e);
         log(result);
-
+        
         // false means it's not a scroll intent, 1 or -1 means it is
         // console.log(result);
-        if (result !== false && prevResult != result) {            
+        if (result !== false && !scrolling) {      
+            scrolling = true;
+
             var direction = result === -1 ? 'down' : 'up';
             scrollScene(direction);
-        }
 
-        prevResult = result;
+            setTimeout(function() {
+                scrolling = false;
+            }, 200) 
+        }
     };   
    
     if ('ontouchstart' in document.documentElement) {
@@ -147,10 +152,10 @@
         } else if (currScene != 1 && direction == 'up') {
             currScene--;
         }
+        
+        if(!reachBottom) $(window).scrollTop(0);
 
-        if (currScene != numScenes) {
-            $(window).scrollTop(0);            
-        }
+        reachBottom = currScene == numScenes;
                 
         if (prevScene && prevScene != currScene) {
             $('.animation-section').removeClass('scene-' + prevScene);
@@ -198,7 +203,8 @@
     });
 
     function getTotalScrollHeight() {
-        var factor = currScene == 5 && !isMobile() ? 1.1 : 2 ;
+        var factor = currScene == 5 && !isMobile() ? 0.5 : 2 ;
+
         return getScreenHeight() * numScenes * factor;
     }
 
