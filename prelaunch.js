@@ -120,6 +120,15 @@
     addEvent(window, 'wheel', checkScroll);
     addEvent(window, 'MozMousePixelScroll', checkScroll); 
 
+    $(window).scroll(function() {
+        var screenBottom = $(window).scrollTop() + $(window).height();
+        if (screenBottom >= $('.down-arrow.footer-arrow').offset().top + 50) {
+            $('.down-arrow:not(.footer-arrow)').hide();
+        } else {
+            $('.down-arrow:not(.footer-arrow)').show();
+        }
+    })
+
     function checkDirection() {
         if (touchendY < touchstartY) {
             scrollScene('down');
