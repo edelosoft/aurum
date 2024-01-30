@@ -250,7 +250,7 @@ body {
 .scene-3 #second-grid .bottom-right .third,
 .scene-3 #second-grid .top-right .cell-image .third {
   opacity: 1;
-  z-index: 4;
+  z-index: 100;
 }
 
 .scene-3 .logos {
