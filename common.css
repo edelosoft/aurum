@@ -305,6 +305,14 @@ body.touch-lock {
         display: none;
     }
 
+    .scene-6 .top-register.desktop {
+        display: flex;
+        z-index: 999;
+        position: fixed;
+        opacity: 1;
+        pointer-events: all;
+    }
+
     .top-right .top-register {
         display: flex;
     }

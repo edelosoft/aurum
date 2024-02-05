@@ -231,13 +231,17 @@
             e.stopPropagation();
             e.preventDefault();
 
-            currScene = isMobile() ? 6 : 5;
-            scrollScene('down');
+            var prevScene = currScene;
 
-            if (isMobile()) {
+            if (currScene != 6) {
+                currScene = isMobile() ? 6 : 5;
+                scrollScene('down');
+            }
+
+            if (isMobile() && prevScene != 6) {
                 setTimeout(function() {
                     scrollToForm();
-                }, 700);
+                }, 600);
             } else {
                 scrollToForm();
             }

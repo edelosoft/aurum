@@ -163,6 +163,7 @@ body {
     opacity: 1;
   }
 
+  .scene-3 .top-right .first .fine-print,
   .scene-2 .top-right .first .fine-print {
     width: 280px;
     right: unset;
