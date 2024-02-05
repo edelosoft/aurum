@@ -237,7 +237,7 @@
             if (isMobile()) {
                 setTimeout(function() {
                     scrollToForm();
-                }, 1600);
+                }, 700);
             } else {
                 scrollToForm();
             }
