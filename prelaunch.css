@@ -55,6 +55,10 @@ body {
 }
 
 @media screen and (max-width: 767px) {
+  .scene-1 .top-right .first .fine-print {
+    opacity: 0;
+  }
+
   .scene-1 #main-grid {
     grid-template-columns: 90% 1fr;
   }    
@@ -157,6 +161,14 @@ body {
   .scene-2 #second-grid .bottom-right .first,
   .scene-2 #first-grid .top-left .first {
     opacity: 1;
+  }
+
+  .scene-2 .top-right .first .fine-print {
+    width: 280px;
+    right: unset;
+    lefT: 20px;
+    opacity: 1;
+    white-space: pre-line;
   }
 
   .scene-1 #second-grid .bottom-right .first .fine-print,
