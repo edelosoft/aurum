@@ -381,11 +381,11 @@ body {
 }    
 
 .scene-5 #first-grid {
-  grid-template-rows: 50% auto;
+  grid-template-rows: min-content auto;
 }    
 
 .scene-5 #second-grid {
-  grid-template-rows: 55% auto;
+  grid-template-rows: auto min-content;
 }
 
 .scene-5 #first-grid .top-left .first,
